@@ -1,7 +1,7 @@
 [
   {
     "kernelSource": {
-      "name": "Op7-All_Nethunter",
+      "name": "Op7Series_Nethunter",
       "repo": "https://github.com/yaap/kernel_oneplus_sm8150",
       "branch": "fourteen",
       "device": "Oneplus7Series",
