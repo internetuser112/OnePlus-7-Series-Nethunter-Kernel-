@@ -9,7 +9,7 @@
     },
     "toolchains": [
       {
-        "repo": "https://gitlab.com/yaosp/prebuilts_clang_host_linux-x86",
+        "repo": "https://gitlab.com/internetuser111/prebuilts_clang_host_linux-x86",
         "branch": "fourteen",
         "name": "clang",
         "binaryEnv": [
