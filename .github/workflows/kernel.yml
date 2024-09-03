@@ -77,6 +77,7 @@ jobs:
       - name: ⭐ Install prerequisites
         run: |
           sudo apt-get update
+          sudo apt-get install -y git-lfs
           sudo apt-get install -y cpio curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3
           sudo apt-get install -y pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler 
           sudo apt-get install -y libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
@@ -145,6 +146,7 @@ jobs:
         env:
           toolchains: "${{ toJSON(matrix.CONFIG.toolchains) }}"
         run: |
+          git lfs install
           toolchains_num="$(echo $toolchains | jq 'length')"
           echo "🤔 There is $toolchains_num defined toolchains."
 
@@ -237,6 +239,21 @@ jobs:
 
           echo "🤔 $args"
 
+    
+      - name: 🦾 Setup Kali-Nethunter
+        run: |
+          cd $GITHUB_WORKSPACE/${{ env.KERNEL_NAME }}
+          git clone https://github.com/tomxi1997/kali-nethunter_patches.git
+          patch -p1 < kali-nethunter_patches/add-rtl88xxau-5.6.4.2-drivers.patch
+          patch -p1 < kali-nethunter_patches/add-wifi-injection-4.14.patch
+          patch -p1 < kali-nethunter_patches/fix-ath9k-naming-conflict.patch
+          sleep 8
+          git clone https://github.com/acai66/Kali-defconfig-checker kali
+          cd kali
+          chmod +x *.sh
+          chmod +x check-kernel-config
+          ./check-kernel-config $GITHUB_WORKSPACE/${{ env.KERNEL_NAME }}/arch/${{ steps.generate-args.outputs.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }} -w
+
       - name: 😋 Setup KernelSU
         working-directory: ${{ env.KERNEL_NAME }}
         env:
@@ -252,6 +269,7 @@ jobs:
           fi
 
           # Apply new KernelSU patches
+          patch -p1 < kernelsu.patch
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
           echo -e "CONFIG_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
@@ -270,7 +288,7 @@ jobs:
           # Add configuration
           for config in $(cat ${{ env.ADD_DEFCONFIG }})
           do
-            echo $i >> ${{ env.DEFCONFIG }}
+            echo $config >> ${{ env.DEFCONFIG }}
           done
 
           # Apply patch
