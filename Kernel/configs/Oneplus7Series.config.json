@@ -48,7 +48,7 @@
         }
       },
       "enableKernelSU": true,
-      "enableLXC": false
+      "enableLXC": true
     }
 ]
 
