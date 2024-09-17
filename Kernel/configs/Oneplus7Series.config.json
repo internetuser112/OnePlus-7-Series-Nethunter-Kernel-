@@ -2,7 +2,7 @@
   {
     "kernelSource": {
       "name": "Op7Series_KSU_Nethunter",
-      "repo": "https://github.com/yaap/kernel_oneplus_sm8150",
+      "repo": "https://github.com/piscesmk2013/kernel_oneplus_sm8150",
       "branch": "fourteen",
       "device": "Oneplus7Series",
       "defconfig": "gulch_defconfig"
