@@ -1,42 +1,40 @@
 [
   {
     "kernelSource": {
-      "name": "Op7Series_KSU_Nethunter",
-      "repo": "https://github.com/yaap/kernel_oneplus_sm8150",
-      "branch": "fourteen",
-      "device": "Oneplus7Series",
-      "defconfig": "gulch_defconfig"
+      "name": "oenplus7t",
+      "repo": "https://github.com/internetuser112/dora_kernel_oneplus_sm8150",
+      "branch": "master",
+      "device": "op7",
+      "defconfig": "dora_defconfig"
     },
+    "enableCcache": true,
     "toolchains": [
       {
-        "repo": "https://gitlab.com/internetuser111/prebuilts_clang_host_linux-x86",
-        "branch": "fourteen",
-        "name": "clang",
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "name": "proton-clang",
         "binaryEnv": [
-          "clang-r522817/bin"
+          "bin"
         ]
       }
     ],
-    "enableCcache": true,
     "params": {
       "ARCH": "arm64",
-      "CC": "clang",
+      "CC": "proton-clang/bin/clang",
       "externalCommands": {
-        "CLANG_TRIPLE": "aarch64-linux-gnu-",
-        "CROSS_COMPILE": "aarch64-linux-android-",
-        "CROSS_COMPILE_ARM32": "arm-linux-androideabi-",
-        "LD": "ld.lld",
-        "AR": "llvm-ar",
-        "NM": "llvm-nm",
-        "OBJCOPY": "llvm-objcopy",
-        "OBJDUMP": "llvm-objdump",
-        "READELF": "llvm-readelf",
-        "OBJSIZE": "llvm-size",
-        "STRIP": "llvm-strip",
-        "LDGOLD": "aarch64-linux-gnu-ld.gold",
-        "LLVM_AR": "llvm-ar",
-        "LLVM_DIS": "llvm-dis",
-        "CONFIG_THINLTO": "y"
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "LD": "proton-clang/bin/ld.lld",
+        "AR": "proton-clang/bin/llvm-ar",
+        "NM": "proton-clang/bin/llvm-nm",
+        "OBJCOPY": "proton-clang/bin/llvm-objcopy",
+        "OBJDUMP": "proton-clang/bin/llvm-objdump",
+        "READELF": "proton-clang/bin/llvm-readelf",
+        "OBJSIZE": "proton-clang/bin/llvm-size",
+        "STRIP": "proton-clang/bin/llvm-strip",
+        "LDGOLD": "proton-clang/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "proton-clang/bin/llvm-ar",
+        "LLVM_DIS": "proton-clang/bin/llvm-dis"
       }
     },
     "AnyKernel3": {
@@ -49,59 +47,5 @@
       },
       "enableKernelSU": true,
       "enableLXC": true
-    }
-]
-
-[
-  {
-    "kernelSource": {
-      "name": "Op7Series_Nethunter",
-      "repo": "https://github.com/yaap/kernel_oneplus_sm8150",
-      "branch": "fourteen",
-      "device": "Oneplus7Series",
-      "defconfig": "gulch_defconfig"
-    },
-    "toolchains": [
-      {
-        "repo": "https://gitlab.com/internetuser111/prebuilts_clang_host_linux-x86",
-        "branch": "fourteen",
-        "name": "clang",
-        "binaryEnv": [
-          "clang-r522817/bin"
-        ]
-      }
-    ],
-    "enableCcache": true,
-    "params": {
-      "ARCH": "arm64",
-      "CC": "clang",
-      "externalCommands": {
-        "CLANG_TRIPLE": "aarch64-linux-gnu-",
-        "CROSS_COMPILE": "aarch64-linux-android-",
-        "CROSS_COMPILE_ARM32": "arm-linux-androideabi-",
-        "LD": "ld.lld",
-        "AR": "llvm-ar",
-        "NM": "llvm-nm",
-        "OBJCOPY": "llvm-objcopy",
-        "OBJDUMP": "llvm-objdump",
-        "READELF": "llvm-readelf",
-        "OBJSIZE": "llvm-size",
-        "STRIP": "llvm-strip",
-        "LDGOLD": "aarch64-linux-gnu-ld.gold",
-        "LLVM_AR": "llvm-ar",
-        "LLVM_DIS": "llvm-dis",
-        "CONFIG_THINLTO": "y"
-      }
-    },
-    "AnyKernel3": {
-        "use": true,
-        "release": true,
-        "custom": {
-          "repo": "https://github.com/internetuser111/AnyKernel3",
-          "branch": "op7-nh"
-        }
-      },
-      "enableKernelSU": false,
-      "enableLXC": false
     }
 ]
