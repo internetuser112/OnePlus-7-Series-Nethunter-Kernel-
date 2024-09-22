@@ -245,10 +245,10 @@ jobs:
           # Apply new KernelSU patches
           #patch -p1 < kernelsu.patch
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
-          cd KernelSU
-          wget https://gist.githubusercontent.com/Kadalis/07cc708c7fb66c12f2af2eae05d0d6ea/raw/86ae3f82da7eca5aae6e41756f6d9e2eb1201a16/ksu_fix_op_not_permitted.patch
-          patch -p1 < ksu_fix_op_not_permitted.patch
-          cd ..
+          #cd KernelSU
+          #wget https://gist.githubusercontent.com/Kadalis/07cc708c7fb66c12f2af2eae05d0d6ea/raw/86ae3f82da7eca5aae6e41756f6d9e2eb1201a16/ksu_fix_op_not_permitted.patch
+          #patch -p1 < ksu_fix_op_not_permitted.patch
+          #cd ..
           echo -e "CONFIG_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KPROBE_EVENTS=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
