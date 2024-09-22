@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "oenplus7t",
-      "repo": "https://github.com/internetuser112/dora_kernel_oneplus_sm8150",
-      "branch": "master",
-      "device": "op7",
-      "defconfig": "dora_defconfig"
+      "name": "RedmiNote12Pro",
+      "repo": "https://github.com/Coconutat/android_kernel_xiaomi_ruby_exp",
+      "branch": "MIUI14",
+      "device": "Ruby",
+      "defconfig": "ruby_stock_mod_defconfig"
     },
     "enableCcache": true,
     "toolchains": [
