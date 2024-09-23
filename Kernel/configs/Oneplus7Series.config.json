@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "RedmiNote12Pro",
-      "repo": "https://github.com/Coconutat/android_kernel_xiaomi_ruby_exp",
-      "branch": "MIUI14",
-      "device": "Ruby",
-      "defconfig": "ruby_stock_mod_defconfig"
+      "name": "rpi4",
+      "repo": "https://github.com/lineage-rpi/android_kernel_brcm_rpi",
+      "branch": "lineage-18.1",
+      "device": "raspberrypi",
+      "defconfig": "lineageos_rpi4_defconfig"
     },
     "enableCcache": true,
     "toolchains": [
