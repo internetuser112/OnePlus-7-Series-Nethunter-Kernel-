@@ -3,7 +3,7 @@
     "kernelSource": {
       "name": "Op7Series_KSU_Nethunter",
       "repo": "https://github.com/0wnerDied/Neptune_kernel_sm8150_oneplus",
-      "branch": "fifteen",
+      "branch": "U-ice",
       "device": "Oneplus7Series",
       "defconfig": "gulch_defconfig"
     },
